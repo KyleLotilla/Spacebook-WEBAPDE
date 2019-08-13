@@ -1,0 +1,6 @@
+<input type = "text" id = "datePicker" placeholder = "Enter Reservation Date"> </input>
+<input type = "button" id = "reserveSubmit" value = "Reserve" disabled> </input>
+<script>
+		getReservedDates("{{_id}}");
+		setUpReserve("{{_id}}", "{{locationName}}");
+</script>

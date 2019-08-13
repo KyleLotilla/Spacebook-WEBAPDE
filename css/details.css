@@ -1,0 +1,21 @@
+.details{
+	margin: 10px 0px;
+	padding: 30px 1000px 0px 20px;
+	font-family: Garamond;
+}
+
+.description{
+	font-size: 20px;
+	color: #87CEEB;
+	padding-left: 150px;
+	padding-bottom: 20px;
+}
+
+.reserve{
+	padding-top: 20px;
+	padding-left: 15px;
+}
+
+body{
+	background-image: url("images/bg2.jpg");
+}

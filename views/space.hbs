@@ -1,0 +1,45 @@
+<html>
+<head>
+	<link rel = "shortcut icon" media = "all" type = "image/png" href = "/logos/favicon.ico"> 
+	<script src = "https://code.jquery.com/jquery-3.4.1.min.js" type = "text/javascript"> </script>
+	<script src = "https://code.jquery.com/ui/1.12.1/jquery-ui.js" type = "text/javascript"> </script>
+	<script src = "/libs/datePickerLib.js" type = "text/javascript"> </script>
+	<script src = "/libs/reserve.js" type = "text/javascript"> </script>
+	<script src = "/libs/starRating.js" type = "text/javascript"> </script>
+	<script src = "/libs/jquery.rateyo.min.js" type = "text/javascript"> </script>
+	<script src = "/libs/feedback.js" type = "text/javascript"></script>
+	<link href = "https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css" type = "text/css" rel = "stylesheet"></link>
+	<link rel="stylesheet" media = "all" type="text/css" href="/css/details.css">
+	<link rel="stylesheet" media = "all" type="text/css" href="/css/view.css">
+	<link rel="stylesheet" media = "all" type="text/css" href="/css/jquery.rateyo.min.css">
+</head>
+<body>
+	{{>navbar}}
+	<div class = "details">
+		<img src = "/images/{{image}}"> </img> <br>
+			<div class = "description">
+				<h2>{{locationName}}</h2> <br>
+				Purpose: {{purpose}} <br>
+				Address: {{address}} <br>
+				Price: {{price}} <br>
+				Capacity: {{capacity}} <br>
+			</div>
+		<hr>
+	</div>
+
+	<div class = "reserve">
+		{{#if accountID}}
+			{{>reserve}}
+			<div id = "feedbackInput"></div>
+			<script>
+				loadFeedbackInput("{{_id}}");
+			</script>
+		{{/if}}
+	</div>
+
+	<div id = "feedback"></div>
+	<script>
+		loadFeedback("{{_id}}");
+	</script>
+</body>
+</html>

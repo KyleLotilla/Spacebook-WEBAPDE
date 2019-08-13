@@ -1,0 +1,35 @@
+body{
+  background-image: url("/images/bg2.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+th, tr, td{
+	height: 20px;
+	width: 300px;
+	font-weight: bolder;
+	font-size: 20px;
+	border: 1px solid black;
+	background-color: white;
+}
+
+table{
+	margin-top: 20px;
+}
+
+
+#errorSpace {
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	width: auto;
+	margin: 0;
+	padding: 0;
+}
+
+#errorMsg {
+	background-color: red;
+	color: white;
+	font-weight: bolder;
+	width: 870px;
+}

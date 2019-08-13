@@ -1,0 +1,9 @@
+<div id = "userRating"></div>
+<input type = "button" id = "userRatingSubmit" value = "Rate"> </input> 
+<script>
+    {{#if accountRating}}
+        setUpRating({{accountRating}}, "{{spaceID}}");
+    {{else}}
+        setUpRating(0, "{{spaceID}}");
+    {{/if}}
+</script>

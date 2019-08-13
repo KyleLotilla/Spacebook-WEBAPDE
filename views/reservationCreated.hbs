@@ -1,0 +1,18 @@
+<html>
+<head>
+		<link rel="stylesheet" media = "all" type="text/css" href="/css/view.css">
+		<link rel="stylesheet" media = "all" type="text/css" href="/css/reservedetails.css">
+</head>
+<body>
+	{{>navbar}}
+
+	<div class = "reserve">
+		<div id = "text">
+			Reservation has been successfully created: <br>
+			Reservation ID: {{reservation._id}} <br>
+			Location Name: {{locationName}} <br>
+			Date: {{formatDate reservation.date}} <br>
+		</div>
+	</div>
+</body>
+</html>
