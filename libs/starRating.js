@@ -26,17 +26,20 @@ function setUpRating(accountRating, spaceID) {
                 window.alert("Please Input a Rating");
                 $("#userRatingSubmit").prop("disabled", false);
             }
-            else {
-                $.ajax({
-                    type: "POST",
-                    url: "http://localhost:9090/rateSpace/" + spaceID,
-                    data: JSON.stringify({rating: $("#userRating").rateYo("option", "rating")}),
-                    contentType: "application/json",
-                    success: function () {
-                        location.reload();
-                    }
-                });
-            }
+            else
+                postRating(spaceID);
         });
+    });
+}
+
+function postRating(spaceID){
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:9090/rateSpace/" + spaceID,
+        data: JSON.stringify({rating: $("#userRating").rateYo("option", "rating")}),
+        contentType: "application/json",
+        success: function () {
+            location.reload();
+        }
     });
 }

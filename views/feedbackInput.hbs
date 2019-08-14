@@ -1,9 +1,13 @@
 <div id = "userRating"></div>
-<input type = "button" id = "userRatingSubmit" value = "Rate"> </input> 
+<input type = "button" id = "userRatingSubmit" value = "Rate"> </input>
+<textarea id = "userComment" rows = "4" cols = "50" placeholder = "Leave a Comment" maxlength = "2048"></textarea> 
+<input type = "button" id = "userCommentSubmit" value = "Post"> </input>
 <script>
     {{#if accountRating}}
         setUpRating({{accountRating}}, "{{spaceID}}");
     {{else}}
         setUpRating(0, "{{spaceID}}");
     {{/if}}
+    
+    setUpComment("{{spaceID}}");
 </script>

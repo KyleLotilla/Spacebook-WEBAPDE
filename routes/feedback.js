@@ -9,6 +9,13 @@ module.exports = function(app) {
         });
     });
 
+    app.post("/commentSpace/:spaceID", function(req, res){
+        var comment = new Comment({account: req.cookies.accountID, space: req.params.spaceID, comment: req.body.comment});
+        mongooseLib.saveDoc(comment, function(newComment) {
+            res.end();
+        });
+    });
+
     app.get("/feedbackInput/:spaceID", function(req, res){
         mongooseLib.findDocs(Rating, {account: req.cookies.accountID}, "rating", function(accountRating){
             var rating;
