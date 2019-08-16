@@ -11,7 +11,14 @@ function setUpReserve(spaceID, locationName) {
 function reserveSpace (spaceID, locationName) {
 	var date = $("#datePicker").datetimepicker("viewDate");
 	date = date._d;
-	var reservation = {spaceID: spaceID, date: date, locationName: locationName};
+	date = date.toLocaleString("en-US", {hour12: false}).split(",");
+	var mdy = date[0].split("/");
+	var year = mdy[2];
+	var month = mdy[0];
+	var day = mdy[1];
+	var formattedDate = new Date(year + "-" + month + "-" + day + "T00:00:00Z");
+
+	var reservation = {spaceID: spaceID, date: formattedDate, locationName: locationName};
 	
 	$.ajax({
 		type: "POST",

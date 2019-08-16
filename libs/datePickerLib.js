@@ -1,22 +1,3 @@
-/*function loadDatePicker(reservedDates) {
-	var curDate = Date.now();
-	$(document).ready(function () {
-		$("#datePicker").datepicker({
-			beforeShowDay: function (dateIndex) {
-				console.log(inDateArray(reservedDates, dateIndex));
-				if (dateIndex < curDate || inDateArray(reservedDates, dateIndex))
-					return {enabled: false, classes: "reservedCell", tooltip: "Reserved"};
-				else
-					return {enabled: true, classes: "availableCell", tooltip: "Available"};
-			},
-			format: "yyyy-mm-dd"
-		});
-		$("#datePicker").on("changeDate", function() {
-			$("#reserveSubmit").prop("disabled", false);
-		});
-	});
-}*/
-
 function getReservedDates(spaceID) {
 	$.ajax ({
 		url: "http://localhost:9090/reservedDates/" + spaceID,
@@ -35,7 +16,9 @@ function loadDatePicker(reservedDates) {
 		$("#datePicker").datetimepicker({
 			minDate: curDate,
 			format: 'MM/DD/YYYY',
-			disabledDates: reservedDates
+			disabledDates: reservedDates,
+			ignoreReadonly: true,
+			useCurrent: false
 		});
 
 		$("#datePicker").on("change.datetimepicker", function(){
@@ -43,12 +26,3 @@ function loadDatePicker(reservedDates) {
 		});
 	});
 }
-
-/*function inDateArray(dateArray, date){
-	dateArray.forEach(function(dateIndex){
-		dateIndex = new Date(dateIndex.date);
-		if (dateIndex.getMonth() == date.getMonth() && dateIndex.getDate() == date.getDate() && dateIndex.getFullYear() == date.getFullYear())
-			return true;
-	});
-	return false;
-}*/
