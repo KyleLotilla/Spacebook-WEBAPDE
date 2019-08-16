@@ -1,18 +1,35 @@
-<ul class = "menu">
-        <li><a href = "home.html">Home</a></li>
-        <li><a href = "http://localhost:9090/viewspaces">View All Spaces</a></li>
-        <li><a href = "http://localhost:9090/reservation">Reservations</a></li>
-        <li style = "float: right; border-left: 1px solid #bbb" id = "logout"><a>Logout</a></li>
-  </ul>
-  <script>
-  	$(document).ready(function() {
-  		$("#logout").click(function(){
-                  $.ajax({
-                        url: "http://localhost:9090/logout",
-                        success: function (){
-                              location.replace("http://localhost:9090/login");
-                        }
-                  });
-  		});
-  	});
- </script>
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <a class = "navbar-brand" href="#">
+                <img src="/logos/favicon.ico" alt="spacebook_logo" style = "float: left; margin-top: 5px;">
+                <p id = "spacebookLabel">Spacebook</p>
+            </a>
+            <button class = "navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#navbarResponsive">
+                <span class = "navbar-toggler-icon"></span>
+            </button>
+            <div class = "collapse navbar-collapse" id = "navbarResponsive">
+                <ul class = "navbar-nav ml-auto">
+                    <li class = "{{setNavItem home}}">
+                        <a href="#" class = "nav-link">Home</a>
+                    </li>
+                    <li class = "{{setNavItem viewspace}}">
+                        <a href="http://localhost:9090/viewspaces" class = "nav-link">View All Spaces</a>
+                    </li>
+                    <li class = "{{setNavItem reservationPage}}">
+                        <a href="http://localhost:9090/reservation" class = "nav-link">Reservations</a>
+                    </li>
+                    <li class = "{{setNavItem notificationPage}}">
+                        <a href="http://localhost:9090/notification" class = "nav-link" id = "notificationBar">Notifications</a>
+                    </li>
+                    <li class = "{{setNavItem logout}}">
+                        <a href="http://localhost:9090/logout" class = "nav-link">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</nav>
+
+{{#unless notificationPage}}
+      <script src = "/libs/notificationNavBar.js" type = "text/javascript"></script>
+      <script> checkNotifications(); </script>
+{{/unless}}

@@ -54,7 +54,7 @@ schedule.scheduleJob("0 0 * * *", function() {
 		reservations.forEach(function(reservation){
 			var date = new Date(reservation.date);
 			date = date.toLocaleDateString("en-US", {month: "long", day: "2-digit", year: "numeric"});
-			var notificationString = "Your Reservation for " + reservation.space.locationName + " is finsihed (" + date + ")." + "<a href = \"http://localhost:9090/space/" + reservation.space._id + "\"> Check out it on Spacebook! </a>";
+			var notificationString = "Your Reservation for " + reservation.space.locationName + " is finished (" + date + ")." + "<a href = \"http://localhost:9090/space/" + reservation.space._id + "\"> Check out it on Spacebook! </a>";
 
 			var notification = new Notification({account: reservation.account, notification: notificationString, checked: false});
 

@@ -29,6 +29,6 @@ module.exports = function (app) {
 
     app.get("*/logout", function(req, res) {
         res.cookie("accountID", "");
-        res.end();
+        res.redirect("/login");
     });
 }

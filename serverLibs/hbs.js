@@ -16,6 +16,12 @@ const hbs = exphbs.create({
 		formatDate: function(date){
 			date = new Date(date);
 			return date.toLocaleDateString("en-US", {month: "long", day: "2-digit", year: "numeric"});
+		},
+		setNavItem: function(parameter){
+			if (parameter == null)
+				return "nav-item";
+			else
+				return "nav-item active";
 		}
 	}
 });
