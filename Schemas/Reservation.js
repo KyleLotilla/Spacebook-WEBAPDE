@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 var reservationSchema = new mongoose.Schema({
-	spaceID: {
+	space: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "Space"
 	},
-	accountID: {
+	account: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "Account"
 	},

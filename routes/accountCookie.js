@@ -1,5 +1,5 @@
 const fs = require("fs");
-const mongooseLib = require("../libs/mongooseLib.js");
+const mongooseLib = require("../serverLibs/mongooseLib.js");
 const {Account} = require("../Schemas/Account.js");
 
 module.exports = function (app) {

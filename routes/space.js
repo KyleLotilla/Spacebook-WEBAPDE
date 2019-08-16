@@ -1,4 +1,4 @@
-const mongooseLib = require("../libs/mongooseLib.js");
+const mongooseLib = require("../serverLibs/mongooseLib.js");
 const {Space} = require("../Schemas/Space.js");
 
 module.exports = function (app) {

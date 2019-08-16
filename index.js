@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 const port = 9090;
 
-const mongooseLib = require("./libs/mongooseLib.js");
+const mongooseLib = require("./serverLibs/mongooseLib.js");
 const {Account} = require("./Schemas/Account.js");
 const {Space} = require("./Schemas/Space.js");
 const {Reservation} = require("./Schemas/Reservation.js");
@@ -19,9 +19,9 @@ app.use(session({secret: "WEBADPE", resave: false, saveUninitialized: true}));
 
 app.use(express.json());
 
-require("./libs/hbs.js")(app);
+require("./serverLibs/hbs.js")(app);
 
-require("./libs/scheduleLib.js");
+require("./serverLibs/scheduleLib.js");
 
 function getRoutes(folderName) {
 	fs.readdirSync(folderName).forEach(function(file){

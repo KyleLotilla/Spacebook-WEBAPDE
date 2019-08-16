@@ -1,4 +1,4 @@
-const mongooseLib = require("../libs/mongooseLib.js");
+const mongooseLib = require("../serverLibs/mongooseLib.js");
 const {Rating} = require("../Schemas/Rating.js");
 const {Comment} = require("../Schemas/Comment.js");
 

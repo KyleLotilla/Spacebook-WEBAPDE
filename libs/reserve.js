@@ -9,7 +9,9 @@ function setUpReserve(spaceID, locationName) {
 }
 
 function reserveSpace (spaceID, locationName) {
-	var reservation = {spaceID: spaceID, date: new Date($.datepicker.formatDate("yy-mm-dd", new Date($("#datePicker").val()))), locationName: locationName};
+	var date = $("#datePicker").datetimepicker("viewDate");
+	date = date._d;
+	var reservation = {spaceID: spaceID, date: date, locationName: locationName};
 	
 	$.ajax({
 		type: "POST",

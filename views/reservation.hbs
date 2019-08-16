@@ -29,7 +29,7 @@
 	{{#each reservations}}
 		<tr>
 			<td> {{_id}} </td>
-			{{#with spaceID}}
+			{{#with space}}
 				<td> <a href = "http://localhost:9090/space/{{_id}}"> {{locationName}} </a> </td>
 			{{/with}}
 			<td> {{formatDate date}} </td>
