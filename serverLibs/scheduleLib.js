@@ -1,6 +1,6 @@
 const {Account} = require("../Schemas/Account.js");
 const {Reservation} = require("../Schemas/Reservation.js");
-const {Notification} = require("../Schemas/Notification.js")
+const {Notification} = require("../Schemas/Notification.js");
 const schedule = require("node-schedule");
 const mongooseLib = require("./mongooseLib.js");
 

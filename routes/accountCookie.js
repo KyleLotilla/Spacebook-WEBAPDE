@@ -4,11 +4,13 @@ const {Account} = require("../Schemas/Account.js");
 
 module.exports = function (app) {
     app.post("/loginUser", function(req, res) {
-        mongooseLib.findOne(Account, {username: req.body.username}, "-cancel -email", function (user) {
+        mongooseLib.findOne(Account, {username: req.body.username}, "-cancel -email -verification", function (user) {
             if (user == null)
                 res.send({msg: "User not found"});
             else if (user.password != req.body.password)
                 res.send({msg: "Password Incorrect"});
+            else if (!(user.verified))
+                res.send({msg: "User not Verified"});
             else {
                 res.cookie("accountID", user._id);
                 res.send({msg: null});
