@@ -10,7 +10,7 @@ module.exports = function (app) {
             else if (user.password != req.body.password)
                 res.send({msg: "Password Incorrect"});
             else if (!(user.verified))
-                res.send({msg: "User not Verified"});
+                res.send({msg: "User not verified"});
             else {
                 res.cookie("accountID", user._id);
                 res.send({msg: null});

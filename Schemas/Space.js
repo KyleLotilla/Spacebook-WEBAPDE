@@ -8,7 +8,8 @@ var spaceSchema = new mongoose.Schema({
 	address: String,
 	price: SchemaTypes.Double,
 	capacity: Number,
-	image: String
+	image: String,
+	desc: String
 });
 
 var Space = mongoose.model("Space", spaceSchema);

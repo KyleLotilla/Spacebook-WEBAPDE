@@ -1,6 +1,33 @@
+@font-face {
+    font-family: Klavika;
+    src: url(/fonts/KlavikaBoldBoldOSF.otf);
+}
+
+@font-face {
+    font-family: AirBnB;
+    src: url(/fonts/AirbnbCerealLight.ttf);
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+
 .reserve{
 	border-style: 1px solid black;
-	background-color: white;
-	margin-top: 15px;
+	background-color: #C0C0C0;
+	margin-top: 25px;
+	margin-left: 450px;
+	margin-right: 450px;
+	border: 1px solid black;
 	text-align: center;
+}
+
+.return{
+	text-align: center;
+	padding-top: 50px;
+}
+
+#text{
+	font-size: 18px;
 }

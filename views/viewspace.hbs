@@ -6,26 +6,82 @@
 	<script src = "/libs/jquery-3.4.1.min.js" type = "text/javascript"> </script>
 	<script src = "/libs/bootstrap/bootstrap.min.js" type = "text/javascript"></script>
 	<link rel="stylesheet" media = "all" type="text/css" href="/css/view.css">
-	<link rel = "stylesheet" media = "all" type = "text/css" href = "/css/bootstrap/bootstrap.min.css">
+  	<link rel="stylesheet" media = "all" type="text/css" href="/css/home.css">
 </head>
 <body>
 	{{>navbar viewspace=true}}
-	<div class="row">
-	  	<div class="column">
+    <div class = filter>
+    	<span class = "btnsortfilter">
+    		<a type = "button" data-toggle="modal" data-target="#sortFilter" class = "btn btn-primary btn-lg" style="color: white; float: left;">
+    			Filter and Sort
+    		</a>
+    	</span>
+    </div>
+    <div class = "modal in" id = "sortFilter" tabindex="-1" aria-hidden = true style="display: none;">
+    	<div class = "modal-dialog">
+    		<div class = "modal-content">
+    			<div class = "modal-header">
+    				<h4 class = "modal-title">Filter & Sort</h4>
+    				<button type = "button" class = "close" data-dismiss="modal" aria-hidden="true">x</button>
+    			</div>
+    			<div class = "modal-body">
+    				<label>Select filters:</label>
+					<form id="select_filters">
+						<p class = "header">Purpose:</p>
+						<input type="radio" name = "purpose" value="Conference">  Conference<br>
+						<input type="radio" name = "purpose" value="Hotel">  Hotel<br>
+						<input type="radio" name = "purpose" value="Multi-Purpose">  Multi-Purpose<br>
+  						<input type="radio" name = "purpose" value="Party">  Party<br>
+  						<input type="radio" name = "purpose" value="Performance">  Performance<br>
+  						<input type="radio" name = "purpose" value="Wedding Reception">  Wedding Reception<br><br>
+
+  						<p class = "header">Address:</p>
+  						<input type="radio" name = "address" value="Balanga">  Balanga<br>
+  						<input type="radio" name = "address" value="Las Pinas City">  Las Pinas City<br>
+  						<input type="radio" name = "address" value="Quezon City">  Quezon City<br>
+  						<input type="radio" name = "address" value="Makati City">  Makati City<br>
+  						<input type="radio" name = "address" value="Manila City">  Manila City<br>
+  						<input type="radio" name = "address" value="Mandaluyong City">  Mandaluyong City<br><br>
+
+  						<p class = "header">Sort:</p>
+ 						<input type="radio" name = "sort" value="a_asc">  A - Z<br>
+ 						<input type="radio" name = "sort" value="a_desc">  Z - A<br>
+ 						<input type="radio" name = "sort" value="capacity_asc">  Least to Most Capacity<br>
+ 						<input type="radio" name = "sort" value="capacity_desc">  Most to Least Capacity<br>
+						<input type="radio" name = "sort" value="price_asc">  Least Expensive to Most Expensive<br>
+						<input type="radio" name = "sort" value="price_desc">  Most Expensive to Least Expensive<br>
+
+						<div class = "modal-footer">
+ 							<input id = "submit_filter" type = "submit" value = "Submit" class = "btn btn-success btn-block">
+ 						</div>
+ 					</form>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+	<div class = "container-fluid padding" style = "clear: both;">
+		<div class="row padding" id = "viewCards">
 	  		{{#each space}}
-	  			<a href= "/space/{{_id}}">
-	  				<img src = "/images/{{image}}"> </img> <br>
-	  			</a>
-	  			<div class = "details">
-	  				<div id = "name">{{locationName}} </div><br>
-					Purpose: {{purpose}} <br>
-					Address: {{address}} <br>
-					Price: {{price}} <br>
-					Capacity: {{capacity}} <br>
-	  				</div>
-	  		<hr>
+	  		<div class="col-md-4" style = "margin-top: 20px;">
+				  <div class = "card">
+	  					<a href= "/space/{{_id}}">
+	  						<img id = "space-img" src = "/images/{{image}}"> </img> <br>
+	  					</a>
+	  				<div class = "details">
+	  					<div id = "name" class = "card-title">{{locationName}} </div>
+	  					<hr>
+							<div class = "card-text">
+								Purpose: {{purpose}} <br>
+								Address: {{address}} <br>
+								Price: Php {{price}} <br>
+								Capacity: {{capacity}} <br>
+							</div>
+	  					</div>
+				    </div>
+	  			</div>
 	  		{{/each}}
   		</div>
 	</div>
+	{{>footer}}
 </body>
 </html>

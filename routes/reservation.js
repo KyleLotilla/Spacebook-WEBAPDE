@@ -4,12 +4,16 @@ const {Reservation} = require("../Schemas/Reservation.js");
 
 module.exports = function (app) {
     app.get("/reservation", function(req, res) {
-        mongooseLib.findById(Account, req.cookies.accountID, "-_id cancel", function (account) {
-            mongooseLib.joinQuery(Reservation, {account: req.cookies.accountID}, "", "space", "locationName", function(docs){
-                var renderData = {cancel: account.cancel, reservations: docs};
-                res.render("reservation", renderData);
+        if (req.cookies.accountID == "")
+            res.redirect("/home");
+        else {
+            mongooseLib.findById(Account, req.cookies.accountID, "-_id cancel", function (account) {
+                mongooseLib.joinQuery(Reservation, {account: req.cookies.accountID}, "", "space", "locationName", function(docs){
+                    var renderData = {cancel: account.cancel, reservations: docs, accountID: req.cookies.accountID};
+                    res.render("reservation", renderData);
+                });
             });
-        });
+        }
     });
     
     app.post("/cancelReservation", function(req, res) {

@@ -1,18 +1,65 @@
-.column {
-  float: left;
-  width: 27%;
-  padding: 10px 15px;
-  margin: 5px 5px;
-  border-style: 1px solid black;
+@font-face {
+  font-family: Klavika;
+  src: url(/fonts/KlavikaBoldBoldOSF.otf);
 }
 
-.column img {
+@font-face {
+  font-family: AirBnB;
+  src: url(/fonts/AirbnbCerealLight.ttf);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+html, body {
+  font-family: AirBnB;
+  color: black;
+  height: 100%;
+}
+
+.card {
+  clear: both;
+  float: left;
+  width: 476px;
+  margin-right: 1000px;
+}
+
+.card-text{
+  padding-bottom: 15px;
+}
+
+#space-img {
   opacity: 0.8; 
   cursor: pointer; 
+  height: 300px;
+  width: 475px;
 }
 
-.column img:hover {
+#space-img:hover {
   opacity: 1;
+}
+
+.navbar {
+  padding: 0.8rem;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+  overflow: hidden;
+}
+
+#navbarLogo {
+  margin-top: 0;
+}
+
+.navbar-nav li {
+  padding-right: 20px;
+}
+
+#btn-search {
+  margin-right: 10px;
 }
 
 .row::after {
@@ -23,23 +70,14 @@
 
 .details{
   text-align: center;
-  color: #87CEEB;
+  /*  color: #87CEEB;*/
 }
 
-#name{
+#name {
   font-size: 21px;
   text-align: left;
-  margin-left: 10px;
-}
-
-body{
-  background-image: url("/images/bg2.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-img{
-  margin-top: 10px;
+  margin-left: 15px;
+  padding-top: 15px;
 }
 
 .menu {
@@ -63,18 +101,70 @@ img{
 li a {
   display: block;
   color: #bfefff;
-  font-family: Krusty;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
-li a:hover {
+.active:enabled {  
   background-color: rgb(36, 37, 42);
   color: rgb(25, 181, 254);
 }
 
-.active:enabled {  
-  background-color: rgb(36, 37, 42);
-  color: rgb(25, 181, 254);
+
+.search_space{
+  padding: 20px 20px;
+  margin: 0px 20px;
+  float: left;
+}
+
+#searchbar{
+  width: 250px;
+  height: 30px;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+#search{
+  height: 30px;
+}
+
+#select_filters{
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+
+.header{
+  font-weight: bold;
+}
+
+.filter{
+  float: left;
+  padding: 20px 20px;
+}
+
+.btn{
+  height: 40px;
+}
+
+.close{
+  float: right;
+}
+
+.modal-title{
+  float: left;
+}
+
+#submit_filter{
+  text-align: center;
+  margin-top: 20px;
+  height: 40px;
+  border: 1px solid #4D4E4F;
+  border-radius: 5px;
+  transform: translateX(-9px);
+}
+
+footer {
+  transform: translateY(76.2vh);
+  bottom: 0;
 }

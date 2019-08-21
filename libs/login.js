@@ -1,5 +1,6 @@
 function setUpLogin() {
 	$(document).ready(function() {
+		$("#errorMsg").hide();
 		$("#submit").click(function() {
 			$("#submit").prop("disabled", true);
 			login($("#username").val(), $("#password").val());
@@ -17,10 +18,12 @@ function login(username, password) {
 		success: function(err) {
 			if (err.msg != null) {
 				$("#submit").prop("disabled", false);
-				$("#errorMsg").html(err.msg);
+				$("#errorMsg").html(err.msg).fadeTo(2000, 500).slideUp(500, function() {
+					$("#errorMsg").slideUp(500);
+				  });
 			}
 			else
-				location.replace("http://localhost:9090/viewspaces");
+				location.replace("http://localhost:9090/home");
 		}
 	});
 }

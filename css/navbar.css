@@ -1,0 +1,53 @@
+@font-face {
+    font-family: Klavika;
+    src: url(/fonts/KlavikaBoldBoldOSF.otf);
+}
+
+@font-face {
+    font-family: AirBnB;
+    src: url(/fonts/AirbnbCerealLight.ttf);
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+
+html, body {
+    font-family: AirBnB;
+    color: black;
+}
+
+.navbar {
+    padding: 0.8rem;
+}
+
+.navbar-nav li {
+    padding-right: 20px;
+}
+
+.form-inline {
+    margin-right: 40px;
+    width: 300px;
+}
+
+#btn-search {
+    margin-right: 10px;
+}
+
+.nav-link {
+    font-size: 1.1em !important;
+}
+
+#navbarLogo {
+    margin-right: 10px;
+}
+
+#spacebookLabel {
+    font-family: Klavika;
+    font-size: 50px;
+    margin-left: 10px;
+    margin-bottom: 0;
+    text-decoration: none;
+    color: rgb(5, 112, 184);
+}

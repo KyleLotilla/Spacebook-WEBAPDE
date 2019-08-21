@@ -1,21 +1,57 @@
+@font-face {
+	font-family: Klavika;
+	src: url(/fonts/KlavikaBoldBoldOSF.otf);
+}
+
+@font-face {
+	font-family: AirBnB;
+	src: url(/fonts/AirbnbCerealLight.ttf);
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+
+html, body {
+	font-family: AirBnB;
+	color: black;
+}
+
+#spaceimg{
+	display: block;
+	width: 640px;
+	height: 440px;
+	padding-top: 30px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
 .details{
 	margin: 10px 0px;
-	padding: 30px 1000px 0px 20px;
-	font-family: Garamond;
 }
 
 .description{
 	font-size: 20px;
-	color: #87CEEB;
-	padding-left: 150px;
 	padding-bottom: 20px;
 }
 
 .reserve{
 	padding-top: 20px;
-	padding-left: 15px;
+	padding-bottom: 20px;
 }
 
-body{
-	background-image: url("images/bg2.jpg");
+.favorite{
+	padding-left: 35px;
+}
+
+#feedbackInput{
+	padding-top: 50px;
+	padding-left: 35px;
+}
+
+#feedback{
+	border: 1px solid #C0C0C0;
+	padding-left: 35px;
+	padding-top: 10px;
 }

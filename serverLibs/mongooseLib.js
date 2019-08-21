@@ -41,6 +41,20 @@ function findDocs(model, filter, projection, callback) {
 	});
 }
 
+function findAndSortDocs(model, filter, projection, sort, callback) {
+	model.find(filter, projection, {sort: sort}, function (err, docs) {
+		if (err) throw err;
+		callback(docs);
+	});
+}
+
+function findDocsWithOptions(model, filter, projection, options, callback) {
+	model.find(filter, projection, options, function (err, docs) {
+		if (err) throw err;
+		callback(docs);
+	});
+}
+
 function findById(model, id, projection, callback) {
 	model.findById(id, projection, function (err, doc) {
 		if (err) throw err;
@@ -53,6 +67,15 @@ function joinQuery(model, filter, projection, foreign, foreignProj, callback) {
 		if (err) throw err;
 		callback(docs);
 	});
+}
+
+function deleteDocs(model, filter, callback){
+	mongoose.connect(url, function(err){
+		model.deleteMany(filter, function (err, u){
+			if (err) throw err;
+			callback(u);
+		})
+	})
 }
 
 function updateById(model, id, update, callback) {
@@ -74,9 +97,12 @@ module.exports = {
 	viewDB,
 	findOne,
 	findDocs,
+	findAndSortDocs,
 	findById,
 	joinQuery,
+	deleteDocs,
 	updateById,
-	updateMany
+	updateMany,
+	findDocsWithOptions
 };
 			

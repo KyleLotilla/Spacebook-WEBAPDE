@@ -1,0 +1,20 @@
+<div class = "container-fluid padding">
+        <div class = "row padding">
+        {{#each featured}}
+                <div class = "col-md-4">
+                    <div class = "card">
+                        <img class = "card-img-top" src = "/images/{{image}}" alt="card1">
+                        <div class = "card-body">
+                            <h4 class = "card-title">{{locationName}}</h4>
+                            <p class = "card-text">Purpose: {{purpose}} <br>
+				                                   Address: {{address}} <br>
+				                                   Price: Php {{price}} <br>
+				                                   Capacity: {{capacity}} <br></p>
+                            <a href="/space/{{_id}}" class = "btn btn-outline-secondary">See Location</a>
+                        </div>
+                    </div>
+                </div>
+        {{/each}}
+        </div>
+        <hr class="my-4">
+</div>

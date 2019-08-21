@@ -11,6 +11,8 @@ function setUpRegister() {
                 }),
                 contentType: "application/json",
                 success: function(){
+                    alert("Signup successful! Check your email for verification.");
+                    location.replace("http://localhost:9090/login");
                     console.log("AXENETTE");
                 }
             });
