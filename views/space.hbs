@@ -29,39 +29,45 @@
 				<h2 id = "location">{{locationName}}</h2> <br>
 				Purpose: {{purpose}} <br>
 				Address: {{address}} <br>
-				Price: Php {{price}} <br>
+				Price: {{price}} <br>
 				Capacity: {{capacity}} <br>
 			</div>
 		<hr>
-			<div class = "overview">
-				{{desc}}<br>
+	</div>
+
+	<div class = "container-fluid padding">	
+        <div class = "row padding">
+            <div class = "col-lg-6">
+				<div class = "favorite">
+					{{#if accountID}}
+						<button id = "favorite" class = "btn btn-primary">Add to Favorites</button>
+					{{/if}}
+				</div>
 			</div>
-			<hr>
+			<div class = "col-lg-6">
+				<div class = "reserve">
+					{{#if accountID}}
+						{{>reserve}}
+					{{/if}}
+				</div>
+			</div>
+		</div>
 	</div>
-
-	<div class = favorite>
-		{{#if accountID}}
-			<button id = "favorite">Add to Favorites</button>
-			<script>
-				setUpFavorite("{{_id}}", "{{locationName}}");
-			</script>
-		{{/if}}
-	</div>
-
-	<div class = "reserve">
-		{{#if accountID}}
-			{{>reserve}}
-			<div id = "feedbackInput"></div>
-			<script>
-				loadFeedbackInput("{{_id}}");
-			</script>
-		{{/if}}
-	</div>
-
+	<div id = "feedbackInput"></div>
 	<div id = "feedback"></div>
+
+	{{#if accountID}}
+		<script>
+			setUpFavorite("{{_id}}", "{{locationName}}");
+		</script>
+		<script>
+			loadFeedbackInput("{{_id}}");
+		</script>
+	{{/if}}
 	<script>
 		loadFeedback("{{_id}}");
 	</script>
+	{{>parallax}}
 	{{>footer}}
 </body>
 </html>

@@ -1,12 +1,16 @@
-Average: <div id = "avg"> </div> <br>
+Average: <div id = "avg"> </div>
 	<script>
 		showRating("avg", {{avg}});
 	</script>
 	
 	{{#each feedback}}
-		{{username}} Rating: <div class = "comment-rating" id = "{{id}}"> </div><br>
-		{{comment}} <br>
+	<hr>
+		<h1>{{username}}</h1>
+		<h3>Comments:</h3>
+		<ul>{{comment}}</ul>
+		<div class = "comment-rating" id = "{{id}}"> </div>
 		<script>
 			showRating("{{id}}", {{rating}});
 		</script>
+		<br><br>
 	{{/each}}
